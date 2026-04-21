@@ -1,6 +1,6 @@
 "use client";
 
-import { Bolt, MessageCircle, Send, X } from "lucide-react";
+import { Bolt, Send } from "lucide-react";
 import { FormEvent, useMemo, useState } from "react";
 
 type Message = {
@@ -10,22 +10,19 @@ type Message = {
 
 const CALENDLY_URL =
   "https://calendly.com/ai-advantage-freelance-consulting/30min";
+const PHONE_NUMBER = "(325) 389-1081";
+const CONTACT_EMAIL = "Ai.advantage.freelance.consulting@gmail.com";
 
 const INTRO_QUESTION =
   "Welcome to AI Forge Advantage. I'm your Forge Sidekick. What's your name?";
-
-const FOLLOWUP_PROMPT = (name: string) =>
-  `Good to meet you, ${name}. What part of your business is currently costing you the most time or money — missed calls, slow follow-ups, or something else?`;
-
-const BOOKING_PROMPT =
-  "That's exactly what we build solutions for. The best next step is a free 30-minute AI Strategy Audit. Here's the link to grab a time: https://calendly.com/ai-advantage-freelance-consulting/30min";
+const CONTACT_INTERRUPT_REGEX =
+  /(phone|number|contact|call|text|reach|email)/i;
 
 export function ForgeBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: INTRO_QUESTION },
   ]);
@@ -41,16 +38,18 @@ export function ForgeBot() {
     setInput("");
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
 
-    if (step === 1) {
+    if (!name) {
       setName(userMessage);
-      setMessages((prev) => [...prev, { role: "assistant", content: FOLLOWUP_PROMPT(userMessage) }]);
-      setStep(2);
-      return;
     }
 
-    if (step === 2) {
-      setMessages((prev) => [...prev, { role: "assistant", content: BOOKING_PROMPT }]);
-      setStep(3);
+    if (CONTACT_INTERRUPT_REGEX.test(userMessage)) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: `You can reach us directly at ${PHONE_NUMBER} or ${CONTACT_EMAIL}. If you want, I can also get you straight to the strategy audit booking: ${CALENDLY_URL}`,
+        },
+      ]);
       return;
     }
 
@@ -99,7 +98,6 @@ export function ForgeBot() {
         return next;
       });
     } finally {
-      setStep(4);
       setIsLoading(false);
     }
   }
@@ -122,9 +120,9 @@ export function ForgeBot() {
               type="button"
               onClick={() => setIsOpen(false)}
               aria-label="Close chat"
-              className="rounded-md p-1 text-white/70 transition hover:bg-white/5 hover:text-white"
+              className="min-h-11 rounded-lg border border-[#FF4D00]/55 px-4 py-2 text-base font-semibold text-[#FF4D00] transition hover:bg-[#FF4D00]/12 hover:text-white"
             >
-              <X size={16} />
+              Close
             </button>
           </div>
 
@@ -154,7 +152,7 @@ export function ForgeBot() {
               <button
                 type="submit"
                 disabled={!canSend}
-                className="rounded-lg bg-[#FF4D00] p-3 text-black [box-shadow:0_0_15px_rgba(255,77,0,0.6)] transition hover:bg-[#ff6a2e] sm:[box-shadow:0_0_20px_rgba(255,77,0,0.7)] disabled:cursor-not-allowed disabled:opacity-40"
+                className="min-h-11 rounded-lg bg-[#FF4D00] px-4 py-3 text-black [box-shadow:0_0_15px_rgba(255,77,0,0.6)] transition hover:bg-[#ff6a2e] sm:[box-shadow:0_0_20px_rgba(255,77,0,0.7)] disabled:cursor-not-allowed disabled:opacity-40"
                 aria-label="Send message"
               >
                 <Send size={18} />
@@ -163,14 +161,20 @@ export function ForgeBot() {
           </form>
         </div>
       ) : (
-        <button
-          type="button"
-          onClick={() => setIsOpen(true)}
-          className="cinematic-hover forge-pulse group flex h-[72px] w-[72px] items-center justify-center rounded-full bg-[#FF4D00] text-black shadow-[0_0_32px_-8px_rgba(255,77,0,0.9)] hover:scale-105 sm:shadow-[0_0_44px_-4px_rgba(255,77,0,1)]"
-          aria-label="Open ForgeBot"
-        >
-          <MessageCircle size={30} className="group-hover:scale-95" />
-        </button>
+        <div className="flex items-center gap-3">
+          <span className="rounded-full border border-[#FF4D00]/65 bg-black/85 px-4 py-2 text-sm font-bold tracking-wide text-[#FF4D00] [text-shadow:0_0_14px_rgba(255,77,0,0.82)]">
+            FORGE YOUR AI HERE
+          </span>
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            className="cinematic-hover forge-pulse group flex h-24 w-24 flex-col items-center justify-center rounded-full bg-[#FF4D00] text-black shadow-[0_0_20px_rgba(255,77,0,0.5)] hover:scale-105"
+            aria-label="Open ForgeBot"
+          >
+            <Bolt size={24} />
+            <span className="text-base font-bold leading-none">Chat</span>
+          </button>
+        </div>
       )}
     </div>
   );
