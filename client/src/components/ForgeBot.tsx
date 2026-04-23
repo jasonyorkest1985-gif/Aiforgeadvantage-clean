@@ -113,35 +113,38 @@ export default function ForgeBot() {
       {/* Chat window */}
       {open && (
         <div
-          className="fixed bottom-24 right-4 w-[340px] max-w-[calc(100vw-2rem)] z-50 rounded-2xl overflow-hidden shadow-2xl animate-chat-pop"
-          style={{ border: "1px solid rgba(34,211,238,0.2)" }}
+          className="fixed bottom-28 right-4 z-50 rounded-2xl overflow-hidden shadow-2xl animate-chat-pop"
+          style={{
+            border: "1px solid rgba(34,211,238,0.2)",
+            width: "min(420px, calc(100vw - 2rem))",
+          }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 bg-[#0f1a1c]">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-[#22d3ee] rounded-lg flex items-center justify-center">
-                <Zap className="w-4 h-4 text-[#0a0a0b]" strokeWidth={2.5} />
+          <div className="flex items-center justify-between px-5 py-4 bg-[#0f1a1c]">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-[#22d3ee] rounded-lg flex items-center justify-center flex-shrink-0">
+                <Zap className="w-5 h-5 text-[#0a0a0b]" strokeWidth={2.5} />
               </div>
               <div>
-                <div className="forge-heading text-sm text-white leading-none">ForgeBot</div>
-                <div className="flex items-center gap-1 mt-0.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#22d3ee] animate-pulse-dot" />
-                  <span className="text-[#22d3ee] text-xs">Online</span>
+                <div className="forge-heading text-base text-white leading-none">FORGEBOT</div>
+                <div className="flex items-center gap-1.5 mt-1">
+                  <div className="w-2 h-2 rounded-full bg-[#22d3ee] animate-pulse-dot" />
+                  <span className="text-[#22d3ee] text-sm">Online</span>
                 </div>
               </div>
             </div>
             <button
               onClick={() => setOpen(false)}
-              className="text-white/40 hover:text-white transition-colors"
+              className="text-white/40 hover:text-white transition-colors p-1"
             >
-              <X className="w-5 h-5" />
+              <X className="w-6 h-6" />
             </button>
           </div>
 
           {/* Messages */}
           <div
-            className="bg-[#0a0a0b] px-4 py-4 flex flex-col gap-3 overflow-y-auto"
-            style={{ height: "320px" }}
+            className="bg-[#0a0a0b] px-4 py-4 flex flex-col gap-4 overflow-y-auto"
+            style={{ height: "500px" }}
           >
             {messages.map((m, i) => (
               <div
@@ -149,7 +152,7 @@ export default function ForgeBot() {
                 className={`flex ${m.from === "bot" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                  className={`max-w-[88%] px-4 py-3 rounded-2xl text-base leading-relaxed ${
                     m.from === "bot"
                       ? "bg-[#22d3ee] text-[#0a0a0b]"
                       : "bg-[#1e1e22] text-white/80"
@@ -162,11 +165,11 @@ export default function ForgeBot() {
             ))}
             {typing && (
               <div className="flex justify-end">
-                <div className="bg-[#22d3ee]/20 px-4 py-3 rounded-2xl flex gap-1.5 items-center">
+                <div className="bg-[#22d3ee]/20 px-5 py-4 rounded-2xl flex gap-2 items-center">
                   {[0, 1, 2].map((d) => (
                     <div
                       key={d}
-                      className="w-1.5 h-1.5 rounded-full bg-[#22d3ee]"
+                      className="w-2 h-2 rounded-full bg-[#22d3ee]"
                       style={{ animation: `pulseDot 1s ease-in-out infinite`, animationDelay: `${d * 0.2}s` }}
                     />
                   ))}
@@ -177,22 +180,22 @@ export default function ForgeBot() {
           </div>
 
           {/* Input */}
-          <div className="bg-[#0f0f11] border-t border-white/5 px-3 py-3 flex gap-2">
+          <div className="bg-[#0f0f11] border-t border-white/5 px-4 py-4 flex gap-3">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKey}
               placeholder="Ask me anything..."
-              className="flex-1 bg-[#1a1a1e] text-white text-sm px-3 py-2 rounded-lg border border-white/10 outline-none focus:border-[#22d3ee]/40 placeholder-white/25"
+              className="flex-1 bg-[#1a1a1e] text-white text-base px-4 py-3 rounded-xl border border-white/10 outline-none focus:border-[#22d3ee]/40 placeholder-white/25"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             />
             <button
               onClick={sendMessage}
               disabled={!input.trim()}
-              className="w-9 h-9 bg-[#22d3ee] rounded-lg flex items-center justify-center flex-shrink-0 disabled:opacity-40 hover:bg-[#06b6d4] transition-colors"
+              className="w-12 h-12 bg-[#22d3ee] rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-40 hover:bg-[#06b6d4] transition-colors"
             >
-              <Send className="w-4 h-4 text-[#0a0a0b]" />
+              <Send className="w-5 h-5 text-[#0a0a0b]" />
             </button>
           </div>
         </div>
@@ -201,16 +204,16 @@ export default function ForgeBot() {
       {/* Floating button */}
       <button
         onClick={handleOpen}
-        className="fixed bottom-5 right-4 z-50 w-14 h-14 bg-[#22d3ee] rounded-full shadow-lg flex items-center justify-center hover:bg-[#06b6d4] transition-all hover:scale-105 active:scale-95"
+        className="fixed bottom-5 right-4 z-50 w-16 h-16 bg-[#22d3ee] rounded-full shadow-lg flex items-center justify-center hover:bg-[#06b6d4] transition-all hover:scale-105 active:scale-95"
         aria-label="Open ForgeBot chat"
       >
         {open ? (
-          <X className="w-6 h-6 text-[#0a0a0b]" />
+          <X className="w-7 h-7 text-[#0a0a0b]" />
         ) : (
-          <MessageSquare className="w-6 h-6 text-[#0a0a0b]" />
+          <MessageSquare className="w-7 h-7 text-[#0a0a0b]" />
         )}
         {!open && unread > 0 && (
-          <div className="absolute -top-1 -right-1 w-5 h-5 bg-[#b45309] rounded-full flex items-center justify-center">
+          <div className="absolute -top-1 -right-1 w-6 h-6 bg-[#b45309] rounded-full flex items-center justify-center">
             <span className="text-white text-xs font-bold">{unread}</span>
           </div>
         )}

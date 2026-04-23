@@ -56,9 +56,7 @@ export default function ChatbotDemo() {
     <section
       ref={sectionRef}
       className="py-20 relative overflow-hidden"
-      style={{
-        background: "#0d0d0f",
-      }}
+      style={{ background: "#0d0d0f" }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -124,8 +122,8 @@ export default function ChatbotDemo() {
             {/* Messages */}
             <div
               ref={chatRef}
-              className="p-4 flex flex-col gap-3 overflow-y-auto"
-              style={{ minHeight: "320px", maxHeight: "400px" }}
+              className="p-4 flex flex-col gap-3 overflow-y-auto overflow-x-hidden"
+              style={{ minHeight: "320px", maxHeight: "420px" }}
             >
               {messages.slice(0, shown).map((m, i) => (
                 <div
@@ -133,12 +131,12 @@ export default function ChatbotDemo() {
                   className={`flex ${m.from === "bot" ? "justify-end" : "justify-start"} animate-chat-pop`}
                 >
                   <div
-                    className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed ${
+                    className={`max-w-[72%] px-4 py-3 rounded-2xl text-sm leading-relaxed break-words ${
                       m.from === "bot"
                         ? "bg-[#22d3ee] text-[#0a0a0b] font-medium"
                         : "bg-[#1e1e22] text-white/80"
                     }`}
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ fontFamily: "'DM Sans', sans-serif", wordBreak: "break-word" }}
                   >
                     {m.text}
                   </div>
