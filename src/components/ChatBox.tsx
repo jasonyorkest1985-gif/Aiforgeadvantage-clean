@@ -1,63 +1,60 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 
 interface Message {
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   content: string;
 }
 
 const GREETING: Message = {
-  role: 'assistant',
-  content: "Hey! I'm here to help. Tell me about your business — what's your biggest challenge right now?",
+  role: "assistant",
+  content: "Hey! I am here to help. Tell me about your business - what is your biggest challenge right now?",
 };
 
 export const ChatBox = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([GREETING]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isLoading]);
 
   const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
-    const userMessage: Message = { role: 'user', content: input.trim() };
+    const userMessage: Message = { role: "user", content: input.trim() };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
-    setInput('');
+    setInput("");
     setIsLoading(true);
-    setError('');
+    setError("");
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: newMessages }),
       });
-      if (!response.ok) throw new Error('Server error');
       const data = await response.json();
       if (data?.content) {
-        setMessages([...newMessages, { role: 'assistant', content: data.content }]);
+        setMessages([...newMessages, { role: "assistant", content: data.content }]);
       } else {
-        throw new Error('Bad response');
+        throw new Error("Bad response");
       }
     } catch {
-      setError('Connection issue — please try again.');
+      setError("Connection issue - please try again.");
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
+    if (e.key === "Enter") { e.preventDefault(); sendMessage(); }
   };
 
   return (
     <>
       <button
-        onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white shadow-lg flex items-center justify-center transition-all"
       >
         {isOpen ? (
@@ -72,7 +69,7 @@ export const ChatBox = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-2rem)] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col" style={{ height: '520px' }}>
+        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-2rem)] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col" style={{ height: "520px" }}>
           <div className="bg-slate-900 border-b border-slate-700 px-5 py-4 flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,11 +87,11 @@ export const ChatBox = () => {
 
           <div className="flex-1 p-4 overflow-y-auto space-y-3">
             {messages.map((msg, i) => (
-              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 <div className={`max-w-[82%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
-                  msg.role === 'user'
-                    ? 'bg-slate-700 text-slate-100 rounded-br-sm'
-                    : 'bg-cyan-500 text-slate-900 font-medium rounded-bl-sm'
+                  msg.role === "user"
+                    ? "bg-slate-700 text-slate-100 rounded-br-sm"
+                    : "bg-cyan-500 text-slate-900 font-medium rounded-bl-sm"
                 }`}>
                   {msg.content}
                 </div>
@@ -125,7 +122,6 @@ export const ChatBox = () => {
               />
               <button
                 onClick={sendMessage}
-                disabled={isLoading || !input.trim()}
                 className="w-10 h-10 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-40 flex items-center justify-center transition-colors flex-shrink-0"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
