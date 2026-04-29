@@ -4,13 +4,12 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  // We remove the "root" property entirely so it defaults to the project root
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // This is the "kill switch" for the 'client' folder error
-  root: './', 
   build: {
     outDir: 'dist',
     emptyOutDir: true,
