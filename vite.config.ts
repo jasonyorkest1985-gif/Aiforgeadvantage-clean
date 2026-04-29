@@ -4,7 +4,6 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  // We remove the "root" property entirely so it defaults to the project root
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
