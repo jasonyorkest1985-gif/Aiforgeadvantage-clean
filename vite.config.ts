@@ -9,12 +9,10 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // This is the "kill switch" for the 'client' folder error
+  root: './', 
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-  },
-  server: {
-    port: 3000,
-    host: true
   }
 })
