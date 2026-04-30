@@ -1,13 +1,1 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Optional: Add a smooth scroll and dark background default */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background-color: #0f172a; /* matches slate-900 */
-}
+@import "tailwindcss";
