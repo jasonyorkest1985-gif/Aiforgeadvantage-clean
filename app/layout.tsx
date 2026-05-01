@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { MouseGlow } from "@/components/MouseGlow";
+import { MouseGlow } from "@/app/components/MouseGlow";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Forge Advantage",
+  title: "AI Forge Strategist",
   description:
-    "Elite AI infrastructure and automation consulting for serious business owners.",
+    "Dashboard-grade AI infrastructure, $497 Profit Leak Audit, and automation for operators who need pipeline recovery.",
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#0A0A0A] text-white">
+      <body className="flex min-h-full flex-col bg-[#071225] text-slate-100">
         <MouseGlow />
         {children}
       </body>
