@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ForgeBot } from "@/components/ForgeBot";
 import { MouseGlow } from "@/components/MouseGlow";
 import "./globals.css";
 
@@ -19,7 +18,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#0A0A0A] text-white">
         <MouseGlow />
         {children}
-        <ForgeBot />
       </body>
     </html>
   );
