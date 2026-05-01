@@ -24,6 +24,18 @@ Drive toward booking the free strategy session at ${CALENDLY_URL} after the audi
 
 Tone: calm, dashboard-clear, no hype—like a senior solutions architect.`;
 
+function isUserOrAssistantMessage(
+  m: unknown,
+): m is { role: "user" | "assistant"; content: string } {
+  if (m === null || typeof m !== "object") return false;
+  if (!("role" in m) || !("content" in m)) return false;
+  const role = (m as { role: unknown }).role;
+  const content = (m as { content: unknown }).content;
+  return (
+    (role === "user" || role === "assistant") && typeof content === "string"
+  );
+}
+
 export async function POST(req: NextRequest) {
   const apiKey = process.env.OPENAI_API_KEY?.trim();
   if (!apiKey) {
@@ -51,15 +63,7 @@ export async function POST(req: NextRequest) {
       ? (body as { messages: unknown[] }).messages
       : [];
 
-  const messages = rawMessages.filter(
-    (m): m is { role: string; content: string } =>
-      m !== null &&
-      typeof m === "object" &&
-      "role" in m &&
-      "content" in m &&
-      typeof (m as { role: unknown }).role === "string" &&
-      typeof (m as { content: unknown }).content === "string",
-  );
+  const messages = rawMessages.filter(isUserOrAssistantMessage);
 
   const openai = new OpenAI({ apiKey });
 
