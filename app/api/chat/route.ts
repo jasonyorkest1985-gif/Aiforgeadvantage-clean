@@ -49,6 +49,22 @@ function isUserOrAssistantMessage(
   );
 }
 
+/**
+ * GET: quick check that this deployment sees `OPENAI_API_KEY` (value is never returned).
+ * Open `https://your-domain/api/chat` in a browser after deploy to debug env issues.
+ */
+export async function GET() {
+  const apiKey = normalizeOpenAiKey(process.env.OPENAI_API_KEY);
+  return NextResponse.json({
+    openaiKeyConfigured: Boolean(apiKey),
+    vercelEnv: process.env.VERCEL_ENV ?? null,
+    nodeEnv: process.env.NODE_ENV,
+    hint: apiKey
+      ? "Key is present on the server. If chat still fails with 401, rotate the key at platform.openai.com and update Vercel."
+      : "Server does not see OPENAI_API_KEY. In Vercel → Settings → Environment Variables, set OPENAI_API_KEY for Production (and Preview if you use preview URLs), Save, then Redeploy.",
+  });
+}
+
 export async function POST(req: NextRequest) {
   const apiKey = normalizeOpenAiKey(process.env.OPENAI_API_KEY);
   if (!apiKey) {
