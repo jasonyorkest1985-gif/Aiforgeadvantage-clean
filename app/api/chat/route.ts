@@ -24,6 +24,19 @@ Drive toward booking the free strategy session at ${CALENDLY_URL} after the audi
 
 Tone: calm, dashboard-clear, no hype—like a senior solutions architect.`;
 
+/** Strip whitespace and optional wrapping quotes from env paste mistakes. */
+function normalizeOpenAiKey(raw: string | undefined): string | undefined {
+  if (raw == null) return undefined;
+  let k = raw.trim();
+  if (
+    (k.startsWith('"') && k.endsWith('"')) ||
+    (k.startsWith("'") && k.endsWith("'"))
+  ) {
+    k = k.slice(1, -1).trim();
+  }
+  return k.length > 0 ? k : undefined;
+}
+
 function isUserOrAssistantMessage(
   m: unknown,
 ): m is { role: "user" | "assistant"; content: string } {
@@ -37,7 +50,7 @@ function isUserOrAssistantMessage(
 }
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.OPENAI_API_KEY?.trim();
+  const apiKey = normalizeOpenAiKey(process.env.OPENAI_API_KEY);
   if (!apiKey) {
     return NextResponse.json(
       {
@@ -84,7 +97,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(msg);
   } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "OpenAI request failed";
+    let message = err instanceof Error ? err.message : "OpenAI request failed";
+    if (/401|incorrect api key|invalid_api_key/i.test(message)) {
+      message = `${message} Create a new secret key at platform.openai.com, paste it into Vercel → OPENAI_API_KEY (no quotes) and .env.local, then redeploy.`;
+    }
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
