@@ -462,59 +462,106 @@ export default function Page() {
       {/* Pricing */}
       <section id="pricing" className="py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <h2 className="text-center text-2xl font-black uppercase tracking-wide text-white md:text-3xl">
-            Built for small business
+          <h2 className="text-center text-2xl font-black uppercase tracking-wide text-white md:text-4xl">
+            Small business
           </h2>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-slate-400">
+            No bloated enterprise contracts. Straightforward pricing that makes
+            sense for a local business.
+          </p>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {/* AI Quick Start */}
             <div className="flex flex-col rounded-2xl border border-white/10 bg-[#0a0f18] p-8">
-              <h3 className="font-mono text-sm font-black uppercase tracking-wider text-slate-500">
-                Starter
+              <h3 className="font-mono text-sm font-black uppercase tracking-wider text-slate-300">
+                AI Quick Start
               </h3>
-              <p className="mt-4 font-mono text-3xl font-bold text-white">
-                From $797
+              <div className="mt-4">
+                <p className="font-mono text-4xl font-bold text-white">$149</p>
+                <p className="text-sm font-medium uppercase tracking-wide text-slate-500">
+                  one-time
+                </p>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-400">
+                One focused session to get your first AI win. Great for testing
+                the waters.
               </p>
-              <ul className="mt-6 flex-1 space-y-3 text-sm text-slate-400">
+              <ul className="mt-6 flex-1 space-y-3 text-sm text-slate-300">
                 <li className="flex gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-cyan-400" /> Strategic
-                  site + capture layout
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  1 AI tool setup session (your pick)
                 </li>
                 <li className="flex gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-cyan-400" /> Core SEO
-                  hygiene
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Review reply automation OR starter chatbot
+                </li>
+                <li className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  30-day email support
+                </li>
+                <li className="flex gap-2 border-t border-white/5 pt-3 text-slate-400">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400/80" />
+                  Simple setup guide &amp; quick training
                 </li>
               </ul>
               <a
                 href={CALENDLY}
-                className="mt-8 block rounded-lg border border-white/20 py-3 text-center text-sm font-bold uppercase tracking-wide text-white transition hover:border-cyan-400/50 hover:text-cyan-400"
+                className="mt-8 block rounded-lg border border-cyan-400/40 py-3 text-center text-sm font-black uppercase tracking-wide text-cyan-400 transition hover:bg-cyan-400/10"
               >
-                Contact sales
+                Get started
               </a>
             </div>
-            <div className="relative flex flex-col rounded-2xl border-2 border-cyan-400 bg-[#050810] p-8 shadow-[0_0_48px_rgba(34,211,238,0.18)] md:-mt-3 md:mb-3">
+
+            {/* The Advantage System */}
+            <div className="relative flex flex-col rounded-2xl border-2 border-cyan-400 bg-[#050810] p-8 shadow-[0_0_48px_rgba(34,211,238,0.18)] lg:-mt-3 lg:mb-3">
               <span
-                className="absolute right-4 top-4 rounded px-2 py-0.5 font-mono text-[10px] font-black uppercase tracking-wider text-black"
-                style={{ backgroundColor: CYAN }}
+                className="absolute right-4 top-4 rounded px-2 py-1 font-mono text-[10px] font-black uppercase tracking-wider text-black"
+                style={{ backgroundColor: ORANGE }}
               >
                 Most popular
               </span>
               <h3 className="font-mono text-sm font-black uppercase tracking-wider text-cyan-400">
-                Pro
+                The Advantage System
               </h3>
-              <p className="mt-4 font-mono text-3xl font-bold text-white">
-                $497 audit + build
+              <div className="mt-4">
+                <p className="font-mono text-3xl font-bold text-white md:text-4xl">
+                  $497{" "}
+                  <span className="text-base font-normal text-slate-400">
+                    setup
+                  </span>
+                </p>
+                <p className="mt-1 font-mono text-xl font-bold text-cyan-400">
+                  + $199/mo
+                </p>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-300">
+                Our most popular package. Full lead capture and follow-up system,
+                built and maintained.
               </p>
               <ul className="mt-6 flex-1 space-y-3 text-sm text-slate-300">
                 <li className="flex gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-cyan-400" /> Profit
-                  Leak Audit
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  AI chatbot on your website
                 </li>
                 <li className="flex gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-cyan-400" /> AI chat
-                  agent (strategist)
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Automated SMS &amp; email follow-up
                 </li>
                 <li className="flex gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-cyan-400" /> SMS +
-                  booking handoff
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Appointment booking integration
+                </li>
+                <li className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Review reply automation
+                </li>
+                <li className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Monthly check-in + tweaks
+                </li>
+                <li className="flex gap-2 border-t border-white/5 pt-3 text-slate-400">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400/80" />
+                  Direct text/email support
                 </li>
               </ul>
               <a
@@ -522,31 +569,52 @@ export default function Page() {
                 className="mt-8 block rounded-lg py-4 text-center text-sm font-black uppercase tracking-widest text-black transition hover:brightness-110"
                 style={{ backgroundColor: CYAN }}
               >
-                Get started
+                Book a call
               </a>
             </div>
+
+            {/* Website + Automation */}
             <div className="flex flex-col rounded-2xl border border-white/10 bg-[#0a0f18] p-8">
-              <h3 className="font-mono text-sm font-black uppercase tracking-wider text-slate-500">
-                Enterprise
+              <h3 className="font-mono text-sm font-black uppercase tracking-wider text-slate-300">
+                Website + Automation
               </h3>
-              <p className="mt-4 font-mono text-3xl font-bold text-white">
-                Custom
+              <div className="mt-4">
+                <p className="font-mono text-4xl font-bold text-white">$797+</p>
+                <p className="text-sm font-medium text-slate-500">
+                  website build
+                </p>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-400">
+                Simple, fast-loading website built to convert. Add The Advantage
+                System to make it work 24/7.
               </p>
-              <ul className="mt-6 flex-1 space-y-3 text-sm text-slate-400">
+              <ul className="mt-6 flex-1 space-y-3 text-sm text-slate-300">
                 <li className="flex gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-cyan-400" /> Multi-location
-                  &amp; routing
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Custom small-business website
                 </li>
                 <li className="flex gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-cyan-400" /> CRM + data
-                  integrations
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Lead capture forms
+                </li>
+                <li className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  Mobile-first design
+                </li>
+                <li className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  SEO foundation
+                </li>
+                <li className="flex gap-2 border-t border-white/5 pt-3 text-slate-400">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400/80" />
+                  Custom projects quoted after discovery
                 </li>
               </ul>
               <a
                 href={CALENDLY}
-                className="mt-8 block rounded-lg border border-white/20 py-3 text-center text-sm font-bold uppercase tracking-wide text-white transition hover:border-cyan-400/50 hover:text-cyan-400"
+                className="mt-8 block rounded-lg border border-white/20 py-3 text-center text-sm font-black uppercase tracking-wide text-white transition hover:border-cyan-400/50 hover:text-cyan-400"
               >
-                Book discovery
+                Request a quote
               </a>
             </div>
           </div>
