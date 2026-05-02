@@ -3,9 +3,9 @@ import { MouseGlow } from "@/app/components/MouseGlow";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Forge Strategist",
+  title: "AI Forge Advantage | Fort Worth AI Automation for Small Business",
   description:
-    "Dashboard-grade AI infrastructure, $497 Profit Leak Audit, and automation for operators who need pipeline recovery.",
+    "AI chat agents, SMS automation, and lead systems for DFW small businesses. $497 Profit Leak Audit, strategic sites, and local-first support.",
 };
 
 export default function RootLayout({
