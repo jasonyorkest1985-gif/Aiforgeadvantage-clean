@@ -1,5 +1,6 @@
 "use client";
 
+import { MessageSquare, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
@@ -8,6 +9,7 @@ const CALENDLY_URL =
   "https://calendly.com/ai-advantage-freelance-consulting/30min";
 
 export function ChatBox() {
+  const [isOpen, setIsOpen] = useState(true);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -107,13 +109,38 @@ export function ChatBox() {
     }
   };
 
+  if (!isOpen) {
+    return (
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          className="flex h-14 w-14 items-center justify-center rounded-full border border-[#22d3ee]/40 bg-[#071225] text-[#22d3ee] shadow-[0_0_24px_rgba(34,211,238,0.35)] transition hover:border-[#22d3ee] hover:bg-[#22d3ee]/15"
+          aria-label="Open AI Forge Strategist chat"
+        >
+          <MessageSquare className="h-6 w-6" strokeWidth={2} />
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed bottom-6 right-6 z-50 w-80 overflow-hidden rounded-2xl border border-[#22d3ee]/20 bg-[#071225] shadow-2xl shadow-[#22d3ee]/10 md:w-96">
-      <div className="flex items-center justify-between border-b border-white/10 bg-[#0a1628] px-4 py-3">
-        <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white">
-          AI FORGE STRATEGIST
-        </h3>
-        <span className="h-2 w-2 animate-pulse rounded-full bg-[#22d3ee] shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
+      <div className="flex items-center justify-between gap-2 border-b border-white/10 bg-[#0a1628] px-3 py-3 md:px-4">
+        <div className="flex min-w-0 items-center gap-2">
+          <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+            AI FORGE STRATEGIST
+          </h3>
+          <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-[#22d3ee] shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsOpen(false)}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/20 text-slate-300 transition hover:border-[#22d3ee]/50 hover:bg-white/5 hover:text-white"
+          aria-label="Close chat"
+        >
+          <X className="h-5 w-5" strokeWidth={2} />
+        </button>
       </div>
 
       <div
