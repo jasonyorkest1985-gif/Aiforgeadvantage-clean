@@ -2,13 +2,13 @@ import {
   BarChart3,
   Bot,
   Check,
-  Linkedin,
+  Globe,
   Link2,
   MessageSquare,
   Search,
+  Share2,
   Sparkles,
   Target,
-  Twitter,
   X,
   Zap,
 } from "lucide-react";
@@ -655,16 +655,16 @@ export default function Page() {
               <a
                 href="#"
                 className="text-slate-500 transition hover:text-cyan-400"
-                aria-label="Twitter (add your profile URL)"
+                aria-label="Social link (replace href with your profile)"
               >
-                <Twitter className="h-5 w-5" />
+                <Share2 className="h-5 w-5" />
               </a>
               <a
                 href="#"
                 className="text-slate-500 transition hover:text-cyan-400"
-                aria-label="LinkedIn (add your profile URL)"
+                aria-label="Website or directory (replace href)"
               >
-                <Linkedin className="h-5 w-5" />
+                <Globe className="h-5 w-5" />
               </a>
             </div>
           </div>
