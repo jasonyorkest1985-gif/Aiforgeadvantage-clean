@@ -287,7 +287,7 @@ export default function Page() {
 
           <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-[#0a0f18] shadow-[0_24px_80px_-20px_rgba(34,211,238,0.2)]">
             <div className="flex items-center justify-between border-b border-white/10 bg-[#0d1624] px-4 py-3">
-              <span className="font-mono text-[44px] font-bold uppercase tracking-[0.2em] text-white">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white">
                 AI FORGE STRATEGIST
               </span>
               <span
@@ -296,7 +296,7 @@ export default function Page() {
               />
             </div>
             <div className="space-y-4 p-4">
-              <p className="text-[40px] font-bold uppercase tracking-wider text-slate-500">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                 AI Assistant
               </p>
               <div className="flex justify-start">
@@ -308,7 +308,7 @@ export default function Page() {
                   text-backs, or something else?
                 </div>
               </div>
-              <p className="text-right text-[40px] font-bold uppercase tracking-wider text-slate-500">
+              <p className="text-right text-[10px] font-bold uppercase tracking-wider text-slate-500">
                 Lead
               </p>
               <div className="flex justify-end">
@@ -316,7 +316,7 @@ export default function Page() {
                   Mostly calls after 5. Small crew, always on a job.
                 </div>
               </div>
-              <p className="text-[40px] font-bold uppercase tracking-wider text-slate-500">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
                 AI Assistant
               </p>
               <div className="flex justify-start">
@@ -515,7 +515,7 @@ export default function Page() {
             {/* The Advantage System */}
             <div className="relative flex flex-col rounded-2xl border-2 border-cyan-400 bg-[#050810] p-8 shadow-[0_0_48px_rgba(34,211,238,0.18)] lg:-mt-3 lg:mb-3">
               <span
-                className="absolute right-4 top-4 rounded px-2 py-1 font-mono text-[40px] font-black uppercase tracking-wider text-black"
+                className="absolute right-4 top-4 rounded px-2 py-1 font-mono text-[10px] font-black uppercase tracking-wider text-black"
                 style={{ backgroundColor: ORANGE }}
               >
                 Most popular

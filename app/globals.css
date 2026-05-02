@@ -15,10 +15,6 @@
   --font-sans: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-html {
-  font-size: 400%;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
