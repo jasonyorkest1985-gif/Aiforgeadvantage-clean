@@ -9,7 +9,6 @@ import {
   Share2,
   Sparkles,
   Target,
-  X,
   Zap,
 } from "lucide-react";
 import { ChatBox } from "@/app/components/ChatBox";
@@ -86,18 +85,21 @@ const processSteps = [
   },
 ];
 
-const weDo = [
-  "AI chat agents that sound like your brand",
-  "SMS + missed-call recovery tied to booking",
-  "Fort Worth–first consulting and implementation",
-  "Clear pricing: audit, site, and sidekick builds",
+const weBuild = [
+  "AI chatbots for websites, Facebook & Instagram",
+  "Automated SMS + email follow-up for leads",
+  "Review reply automation (Google & Facebook)",
+  "Simple, fast, conversion-focused websites",
+  "Booking flows, intake forms, small dashboards",
+  "AI setup and hands-on training for owners & staff",
 ];
 
-const weDont = [
-  "Generic bots with no business context",
-  "Black-box “AI” with no measurable pipeline lift",
-  "Offshore ticket queues for critical fixes",
-  "Vanity dashboards that hide what’s broken",
+const weWontPromise = [
+  "Fully custom mobile apps from scratch",
+  "Enterprise-grade software platforms",
+  "Mission-critical systems we can't personally support",
+  "Multi-month custom engineering projects",
+  "Anything we can't troubleshoot and fix ourselves",
 ];
 
 const testimonials = [
@@ -368,13 +370,18 @@ export default function Page() {
           <h2 className="text-center text-2xl font-black uppercase tracking-wide text-white md:text-3xl">
             What we do — and what we don&apos;t
           </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-slate-400">
+            Small-business automation is only worth it if it actually works.
+            Here&apos;s what we&apos;ll take on confidently — and where
+            we&apos;ll tell you straight that it&apos;s not our lane.
+          </p>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             <div className="rounded-2xl border border-cyan-500/25 bg-[#0a0f18] p-8">
-              <h3 className="font-bold uppercase tracking-wide text-cyan-400">
-                We do
+              <h3 className="font-black uppercase tracking-wide text-cyan-400">
+                We build
               </h3>
               <ul className="mt-6 space-y-4">
-                {weDo.map((item) => (
+                {weBuild.map((item) => (
                   <li key={item} className="flex gap-3 text-slate-300">
                     <Check
                       className="mt-0.5 h-5 w-5 shrink-0 text-cyan-400"
@@ -386,23 +393,29 @@ export default function Page() {
               </ul>
             </div>
             <div className="rounded-2xl border border-white/10 bg-[#0a0f18]/80 p-8">
-              <h3 className="font-bold uppercase tracking-wide text-slate-400">
-                We don&apos;t
+              <h3 className="font-black uppercase tracking-wide text-slate-400">
+                We won&apos;t promise
               </h3>
               <ul className="mt-6 space-y-4">
-                {weDont.map((item) => (
+                {weWontPromise.map((item) => (
                   <li key={item} className="flex gap-3 text-slate-400">
-                    <X
-                      className="mt-0.5 h-5 w-5 shrink-0"
+                    <span
+                      className="mt-0.5 shrink-0 font-mono text-lg leading-none"
                       style={{ color: ORANGE }}
-                      strokeWidth={2.5}
-                    />
+                      aria-hidden
+                    >
+                      —
+                    </span>
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
+          <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-relaxed text-slate-500">
+            If you need something in that lane, we&apos;ll tell you straight and
+            point you toward someone who does it well.
+          </p>
         </div>
       </section>
 
