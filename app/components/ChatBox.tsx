@@ -128,7 +128,7 @@ export function ChatBox() {
     <div className="fixed bottom-6 right-6 z-50 w-80 overflow-hidden rounded-2xl border border-[#22d3ee]/20 bg-[#071225] shadow-2xl shadow-[#22d3ee]/10 md:w-96">
       <div className="flex items-center justify-between gap-2 border-b border-white/10 bg-[#0a1628] px-3 py-3 md:px-4">
         <div className="flex min-w-0 items-center gap-2">
-          <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+          <h3 className="font-mono text-[40px] font-bold uppercase tracking-[0.2em] text-white">
             AI FORGE STRATEGIST
           </h3>
           <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-[#22d3ee] shadow-[0_0_12px_rgba(34,211,238,0.9)]" />
