@@ -238,7 +238,7 @@ export default function App() {
             {[
               {
                 n: '01',
-                title: 'Discovery &amp; profit leak audit',
+                title: 'Discovery call &amp; lead mapping',
                 body: 'We map where leads die — missed calls, slow texts, no follow-up — and quantify the revenue left on the table.',
               },
               {
@@ -271,61 +271,41 @@ export default function App() {
         </div>
       </section>
 
-      {/* Honest scope */}
+      {/* What we build */}
       <section className="border-t border-[#0f2847] bg-[#050f1a] py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-xs font-bold uppercase tracking-widest text-[#22d3ee] text-center md:text-left">
-            Honest scope
+            Full-stack capability
           </p>
           <h2 className="mt-3 font-['Bebas_Neue',sans-serif] text-3xl tracking-wide text-white md:text-4xl text-center md:text-left">
-            WHAT WE DO — AND WHAT WE DON&apos;T
+            WHAT WE BUILD
           </h2>
           <p className="mt-6 max-w-3xl text-zinc-300 leading-relaxed md:text-left text-center md:text-left mx-auto md:mx-0">
-            Small-business automation is only worth it if it actually works. Here&apos;s what we&apos;ll take on
-            confidently — and where we&apos;ll tell you straight that it&apos;s not our lane.
+            From quick automation wins to full custom platforms — we build it, ship it, and support it ourselves.
           </p>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-[#143252] bg-[#050f1a]/60 p-8">
-              <h3 className="font-['Bebas_Neue',sans-serif] text-2xl text-[#22d3ee]">WE BUILD</h3>
-              <ul className="mt-6 space-y-4 text-zinc-300">
-                {[
-                  'AI chatbots for websites, Facebook & Instagram',
-                  'Automated SMS + email follow-up for leads',
-                  'Review reply automation (Google & Facebook)',
-                  'Simple, fast, conversion-focused websites',
-                  'Booking flows, intake forms, small dashboards',
-                  'AI setup and hands-on training for owners & staff',
-                ].map((t) => (
-                  <li key={t} className="flex gap-3">
-                    <CheckIcon />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-[#143252] bg-[#050f1a]/60 p-8">
-              <h3 className="font-['Bebas_Neue',sans-serif] text-2xl text-[#22d3ee]">WE WON&apos;T PROMISE</h3>
-              <ul className="mt-6 space-y-4 text-zinc-300">
-                {[
-                  'Fully custom mobile apps from scratch',
-                  'Enterprise-grade software platforms',
-                  'Mission-critical systems we can’t personally support',
-                  'Multi-month custom engineering projects',
-                  'Anything we can’t troubleshoot and fix ourselves',
-                ].map((t) => (
-                  <li key={t} className="flex gap-3">
-                    <span className="mt-1.5 h-px w-4 shrink-0 bg-[#22d3ee] self-start" aria-hidden />
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-12 rounded-2xl border border-[#143252] bg-[#050f1a]/60 p-8 md:p-10">
+            <ul className="grid gap-4 text-zinc-300 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-4">
+              {[
+                'AI chatbots for websites, Facebook & Instagram',
+                'Automated SMS + email follow-up for leads',
+                'Review reply automation (Google & Facebook)',
+                'Simple, fast, conversion-focused websites',
+                'Booking flows, intake forms, small dashboards',
+                'AI setup and hands-on training for owners & staff',
+                'Sales funnels & landing pages built to convert',
+                'AI voice receptionist — answers calls and books jobs automatically',
+                'Lead qualification & scoring, so you chase real buyers first',
+                'Custom software platforms & CRM builds',
+                'Fully custom apps, tailored to how you run your business',
+              ].map((t) => (
+                <li key={t} className="flex gap-3">
+                  <CheckIcon />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="mt-10 max-w-3xl space-y-4 text-zinc-400 leading-relaxed text-sm md:text-base mx-auto md:mx-0 text-center md:text-left">
-            <p>
-              If you need something in that lane, we&apos;ll tell you straight and point you toward someone who does
-              it well.
-            </p>
             <p>
               Larger or unusual projects get scoped and quoted after a discovery call — never sold from a price list.
             </p>
@@ -504,7 +484,7 @@ export default function App() {
             STOP LOSING LEADS <span className="text-[#22d3ee]">AFTER HOURS.</span>
           </h2>
           <p className="mt-4 mx-auto max-w-xl text-zinc-200 leading-relaxed">
-            Click below to book your free profit leak audit, or open the chat anytime to get started right now.
+            Click below to book a free discovery call, or open the chat anytime to get started right now.
           </p>
           <div className="mt-10 flex justify-center">
             <a
@@ -544,7 +524,7 @@ export default function App() {
               <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Product</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><a href="#pricing" className="hover:text-[#22d3ee]">Pricing</a></li>
-                <li><a href="#cta" className="hover:text-[#22d3ee]">Audit</a></li>
+                <li><a href="#cta" className="hover:text-[#22d3ee]">Discovery Call</a></li>
               </ul>
             </div>
             <div>
