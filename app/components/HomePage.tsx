@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -120,12 +121,12 @@ export default function App() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#cta"
-              className="inline-flex items-center justify-center rounded-lg bg-[#22d3ee] px-8 py-3.5 text-base font-bold text-black hover:bg-[#67e8f9] transition-colors duration-200"
-            >
-              GET STARTED
-            </a>
-            <a
-              href="#tools"
+                className="inline-flex items-center justify-center rounded-lg bg-[#22d3ee] px-8 py-3.5 text-base font-bold text-black hover:bg-[#67e8f9] transition-colors duration-200"
+              >
+                GET STARTED
+              </a>
+              <a
+                href="#tools"
               className="inline-flex items-center justify-center rounded-lg border-2 border-white px-8 py-3.5 text-base font-bold text-white hover:bg-white/10 transition-colors duration-200"
             >
               LEARN MORE
@@ -503,11 +504,11 @@ cta: 'BOOK A DISCOVERY CALL',
           </p>
           <div className="mt-10 flex justify-center">
             <a
-              href="#cta"
-              className="inline-flex items-center justify-center rounded-lg bg-[#22d3ee] px-8 py-3.5 text-base font-bold text-black hover:bg-[#67e8f9] transition-colors duration-200"
-            >
-              GET STARTED
-            </a>
+              href={PHONE_TEL}
+                className="inline-flex items-center justify-center rounded-lg bg-[#22d3ee] px-8 py-3.5 text-base font-bold text-black hover:bg-[#67e8f9] transition-colors duration-200"
+              >
+                CALL NOW: {PHONE_DISPLAY}
+              </a>
           </div>
         </div>
       </section>
