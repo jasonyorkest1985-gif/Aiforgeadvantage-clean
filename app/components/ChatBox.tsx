@@ -180,7 +180,7 @@ export const ChatBox = () => {
                 className="w-10 h-10 rounded-xl bg-[#22d3ee] hover:bg-[#67e8f9] disabled:opacity-40 flex items-center justify-center transition-colors flex-shrink-0"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
                 </svg>
               </button>
             </div>
