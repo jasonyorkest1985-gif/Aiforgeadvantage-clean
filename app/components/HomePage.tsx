@@ -350,7 +350,8 @@ export default function App() {
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="font-['Bebas_Neue',sans-serif] text-4xl tracking-wide text-white md:text-5xl">BUILT FOR SMALL BUSINESS</h2>
           <p className="mt-4 text-zinc-400 max-w-2xl">Simple plans. Real outcomes. Scale up when your lead flow does.</p>
-          <div className="mt-14 grid gap-8 lg:grid-cols-3 lg:items-stretch">
+<p className="mt-3 text-sm text-zinc-500 max-w-2xl">Most projects fit one of these four tiers. Full operations rebuilds — multi-location systems, custom apps, dashboards — are scoped individually starting with Custom Platforms below.</p>
+          <div className="mt-14 grid gap-8 lg:grid-cols-2 xl:grid-cols-4 lg:items-stretch">
             {[
               {
                 name: 'AI QUICK START',
@@ -392,12 +393,26 @@ export default function App() {
                   'Lead capture forms',
                   'Mobile-first design',
                   'SEO foundation',
-                  'Custom projects quoted after discovery',
                 ],
                 featured: false,
                 cta: 'REQUEST A QUOTE',
-              },
-            ].map((plan) => (
+},
+{
+name: 'CUSTOM PLATFORMS',
+price: 'Starting at $15,000',
+period: 'scoped after discovery',
+features: [
+'For multi-system builds beyond our standard packages.',
+'Multi-location dispatch & scheduling systems',
+'Custom mobile apps for teams and management',
+'AI phone systems built for high call volume',
+'Safety, compliance & operations dashboards',
+'Fully custom scope, quoted after a discovery call',
+],
+featured: false,
+cta: 'BOOK A DISCOVERY CALL',
+},
+].map((plan) => (
               <div
                 key={plan.name}
                 className={`flex flex-col rounded-2xl border p-8 ${
